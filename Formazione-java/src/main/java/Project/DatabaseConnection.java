@@ -39,7 +39,7 @@ public class DatabaseConnection {
 
 	}
 	
-	public void insertDB(Persona p) {
+	public void insertDB(Person p) {
 		try {
 			Statement stmt=con.createStatement();
 			Timestamp timestamp = new Timestamp(System.currentTimeMillis());

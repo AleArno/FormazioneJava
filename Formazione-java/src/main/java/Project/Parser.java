@@ -10,14 +10,14 @@ public class Parser {
 	public Parser() {
 	}
 
-	private Persona getPersona(Element element) {
-		Persona p;
+	private Person getPersona(Element element) {
+		Person p;
 		String key = getTextValue(element, "uniqueKey");
 		String name = getTextValue(element, "name");
 		String surname = getTextValue(element, "surname");
 		String birth = getTextValue(element, "Birth");
 
-		p = new Persona(key, name, surname, birth);
+		p = new Person(key, name, surname, birth);
 		return p;
 	}
 
@@ -31,14 +31,14 @@ public class Parser {
 		return value;
 	}
 
-	public ArrayList<Persona> parseXML(String filename) throws Throwable {
-		ArrayList<Persona> persone = new ArrayList<Persona>();
+	public ArrayList<Person> parseXML(String filename) throws Throwable {
+		ArrayList<Person> persone = new ArrayList<Person>();
 		DocumentBuilderFactory factory;
 		DocumentBuilder builder;
 		Document document;
 		Element element;
 		NodeList nodelist;
-		Persona p;
+		Person p;
 
 		factory = DocumentBuilderFactory.newInstance();
 		builder = factory.newDocumentBuilder();

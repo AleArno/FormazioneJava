@@ -31,7 +31,7 @@ public class File {
 		try {
 			System.out.println("I'm reading from the file: " + this.getFileName());
 			Scanner inFile = new Scanner(new FileReader(this.fileName));
-			System.out.println("Contenuto: ");
+			System.out.println("Content: ");
 
 			while (inFile.hasNextLine()) {
 				System.out.println(inFile.nextLine());
@@ -43,7 +43,7 @@ public class File {
 		}
 	}
 
-	public void write(ArrayList<Persona> elements) {
+	public void write(ArrayList<Person> elements) {
 		try {
 			System.out.println("I'm writing on file: " + this.getFileName());
 			PrintWriter outFile = new PrintWriter(new FileWriter(this.fileName));

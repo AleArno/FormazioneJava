@@ -1,16 +1,16 @@
 package Project;
 
-public class Persona {
+public class Person {
 
 	private String key;
 	private String name;
 	private String surname;
 	private String birth;
 
-	public Persona() {
+	public Person() {
 	}
 
-	public Persona(String key, String name, String surname, String birth) {
+	public Person(String key, String name, String surname, String birth) {
 		this.key = key;
 		this.name = name;
 		this.surname = surname;
