@@ -44,6 +44,7 @@ public class DatabaseConnection {
 			String sql="INSERT INTO person (uniqueKey,name,surnamr,birth,tinsert) VALUES ('"+p.getKey()+"','"+p.getName()+"','"+p.getSurname()+"','"+p.getBirth()+"','"+timestamp+"');";
 			stmt.executeUpdate(sql);
 			}
+		
 			catch(SQLException e){
 				e.printStackTrace();
 			}
