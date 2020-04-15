@@ -1,4 +1,4 @@
-package Project;
+package project;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -48,7 +48,6 @@ public class Menu {
 			System.out.println("Insert CSV file destination path \n");
 			outputCSV = keyb.next();
 			File output = new File(outputCSV);
-			Iterator iterator = persone.iterator();
 
 			output.write(persone);
 

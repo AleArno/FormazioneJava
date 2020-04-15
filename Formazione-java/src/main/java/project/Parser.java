@@ -1,4 +1,4 @@
-package Project;
+package project;
 import org.w3c.dom.*;
 
 import javax.xml.parsers.*;

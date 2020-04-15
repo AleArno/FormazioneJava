@@ -1,4 +1,4 @@
-package Project;
+package project;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -11,22 +11,20 @@ public class DatabaseConnection {
 
 	public DatabaseConnection() {
 
-		// public void CreaConnessione(){
+		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 		} catch (ClassNotFoundException e1) {
 			e1.printStackTrace();
-			return;
 		}
 		con = null;
 
 		try {
 			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1/persone", "root", "");
-			System.out.println("Connessione al db riuscita");
 		} catch (SQLException e) {
-			System.out.println("Connection Failed");
+			System.err.println("Connection Failed");
 			e.printStackTrace();
-			return;
+			
 		}
 	}
 
