@@ -11,7 +11,7 @@ public class DatabaseConnection {
 
 	public DatabaseConnection() {
 
-		
+		//prova .gitignore
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 		} catch (ClassNotFoundException e1) {
