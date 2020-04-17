@@ -47,6 +47,7 @@ public class File {
 		try {
 			System.out.println("I'm writing on file: " + this.getFileName());
 			PrintWriter outFile = new PrintWriter(new FileWriter(this.fileName));
+			outFile.println("uniqueKey , name , surname , birth");
 			for (int i=0;i<elements.size();i++) {
 				outFile.println(elements.get(i).toString());
 			}
@@ -70,5 +71,7 @@ public class File {
 		}
 		return elements;
 	}
+	
+
 
 }

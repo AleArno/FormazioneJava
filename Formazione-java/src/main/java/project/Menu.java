@@ -5,35 +5,40 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 public class Menu {
+	Scanner keyb = new Scanner(System.in);
 	public Menu() {
 
 	}
 
 	public void create() throws Throwable {
-//	public Menu() throws Throwable {
-		Scanner keyb = new Scanner(System.in);
+		
 		int i;
+		do {
 		System.out.println("*********** MENU ***********");
 		System.out.println(
 				"To read a XML file and export it in CSV digit 1 \n To read a XML file and insert data into DB digit 2 \n ");
 		i = keyb.nextInt();
+		
 		switch (i) {
 		case 1:
-			fromXMLtoCSV(keyb);
+			fromXMLtoCSV();
 			break;
 		case 2:
-			DatabaseConnection db = new DatabaseConnection();
-			Parser pa = new Parser();
-			ArrayList<Person> persone = new ArrayList<Person>();
-			System.out.print("Insert file path");
-			String path = keyb.next();
-			persone = pa.parseXML(path);
-			db.closeConnection();
+			dbInsert();
 			break;
 		}
+		System.out.println("Do you want to continue? \n Digit 1 to continue or 0 to end.");
+		i=keyb.nextInt();
+		{
+			}
+		}
+		while(i!=0);
+		keyb.close();
+		
 	}
+		
 
-	public void fromXMLtoCSV(Scanner keyb) throws Throwable {
+	private void fromXMLtoCSV() throws Throwable {
 
 		String inputXML, outputCSV;
 		System.out.print("Insert XML file path");
@@ -55,7 +60,26 @@ public class Menu {
 			System.err.println("Error");
 			e.printStackTrace();
 		}
-		keyb.close();
+		
+	}
+	
+	private void dbInsert() {
+		DatabaseConnection db = new DatabaseConnection();
+		Parser pa = new Parser();
+		ArrayList<Person> persone = new ArrayList<Person>();
+		System.out.print("Insert file path");
+		String path = keyb.next();
+		try {
+			persone = pa.parseXML(path);
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}
+		
+		for(int j=0;j<persone.size();j++) {
+			db.insertDB(persone.get(j));
+		}
+		
+		db.closeConnection();
 	}
 
 }

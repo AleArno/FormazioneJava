@@ -11,7 +11,7 @@ public class DatabaseConnection {
 
 	public DatabaseConnection() {
 
-		//prova .gitignore
+
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 		} catch (ClassNotFoundException e1) {
@@ -21,6 +21,7 @@ public class DatabaseConnection {
 
 		try {
 			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1/persone", "root", "");
+			System.out.println("Db connected");
 		} catch (SQLException e) {
 			System.err.println("Connection Failed");
 			e.printStackTrace();
@@ -37,17 +38,19 @@ public class DatabaseConnection {
 
 	}
 	
-	public void insertDB(Person p) {
+	protected void insertDB(Person p) {
 		try {
 			Statement stmt=con.createStatement();
 			Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-			String sql="INSERT INTO person (uniqueKey,name,surnamr,birth,tinsert) VALUES ('"+p.getKey()+"','"+p.getName()+"','"+p.getSurname()+"','"+p.getBirth()+"','"+timestamp+"');";
+			String sql="INSERT INTO person (uniqueKey,name,surname,birth,tinsert) VALUES ('"+p.getKey()+"','"+p.getName()+"','"+p.getSurname()+"','"+p.getBirth()+"','"+timestamp+"');";
 			stmt.executeUpdate(sql);
+			System.out.println("Persona inserita");
 			}
 		
 			catch(SQLException e){
 				e.printStackTrace();
 			}
 	}
+	
 
 }
