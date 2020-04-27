@@ -10,8 +10,8 @@ public class DatabaseConnection {
 	private Connection con;
 
 	public DatabaseConnection() {
-
-
+	}
+public void start() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 		} catch (ClassNotFoundException e1) {
@@ -27,7 +27,7 @@ public class DatabaseConnection {
 			e.printStackTrace();
 			
 		}
-	}
+}
 
 	public void closeConnection() {
 		try {

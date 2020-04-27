@@ -65,6 +65,7 @@ public class Menu {
 	
 	private void dbInsert() {
 		DatabaseConnection db = new DatabaseConnection();
+		db.start();
 		Parser pa = new Parser();
 		ArrayList<Person> persone = new ArrayList<Person>();
 		System.out.print("Insert file path");
