@@ -1,4 +1,5 @@
 package project;
+
 import org.w3c.dom.*;
 
 import javax.xml.parsers.*;
@@ -7,16 +8,16 @@ import java.util.ArrayList;
 
 public class Parser {
 
-	private static Parser instance;	
-	
+	private static Parser instance;
+
 	private Parser() {
 	}
-	
+
 	public static Parser getInstance() {
-		if(instance==null) {
-			instance= new Parser();
+		if (instance == null) {
+			instance = new Parser();
 		}
-		
+
 		return instance;
 	}
 

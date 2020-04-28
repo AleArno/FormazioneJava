@@ -1,4 +1,5 @@
 package project;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -9,17 +10,18 @@ public class DatabaseConnection {
 
 	private Connection con;
 	private static DatabaseConnection instance;
+
 	private DatabaseConnection() {
 	}
-	
+
 	public static DatabaseConnection getInstance() {
-		if(instance==null) {
-			instance=new DatabaseConnection();
+		if (instance == null) {
+			instance = new DatabaseConnection();
 		}
-		return instance;		
+		return instance;
 	}
-	
-public void start() {
+
+	public void start() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 		} catch (ClassNotFoundException e1) {
@@ -33,9 +35,9 @@ public void start() {
 		} catch (SQLException e) {
 			System.err.println("Connection Failed");
 			e.printStackTrace();
-			
+
 		}
-}
+	}
 
 	public void closeConnection() {
 		try {
@@ -45,20 +47,19 @@ public void start() {
 		}
 
 	}
-	
+
 	protected void insertDB(Person p) {
 		try {
-			Statement stmt=con.createStatement();
+			Statement stmt = con.createStatement();
 			Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-			String sql="INSERT INTO person (uniqueKey,name,surname,birth,tinsert) VALUES ('"+p.getKey()+"','"+p.getName()+"','"+p.getSurname()+"','"+p.getBirth()+"','"+timestamp+"');";
+			String sql = "INSERT INTO person (uniqueKey,name,surname,birth,tinsert) VALUES ('" + p.getKey() + "','"
+					+ p.getName() + "','" + p.getSurname() + "','" + p.getBirth() + "','" + timestamp + "');";
 			stmt.executeUpdate(sql);
-			System.out.println("Persona inserita");
-			}
-		
-			catch(SQLException e){
-				e.printStackTrace();
-			}
+		}
+
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
-	
 
 }

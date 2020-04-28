@@ -35,7 +35,7 @@ public class Person {
 
 	@Override
 	public String toString() {
-		return key+" , "+name+" , "+surname+" , "+birth;
+		return key + " , " + name + " , " + surname + " , " + birth;
 	}
 
 	public String getKey() {
