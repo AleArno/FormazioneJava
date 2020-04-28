@@ -1,5 +1,8 @@
 package project;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
@@ -53,8 +56,7 @@ public class Menu {
 			System.out.println("Insert CSV file destination path \n");
 			outputCSV = keyb.next();
 			File output = new File(outputCSV);
-
-			output.write(persone);
+			write(persone,outputCSV);
 
 		} catch (Exception e) {
 			System.err.println("Error");
@@ -83,4 +85,19 @@ public class Menu {
 		db.closeConnection();
 	}
 
+	public void write(ArrayList<Person> elements,String filename) {
+		try {
+			System.out.println("I'm writing on file: " + filename);
+			PrintWriter outFile = new PrintWriter(filename);
+			outFile.println("uniqueKey , name , surname , birth");
+			for (int i=0;i<elements.size();i++) {
+				outFile.println(elements.get(i).toString());
+			}
+
+			outFile.close();
+		} catch (IOException e) {
+			System.err.println(e);
+		}
+	}
+	
 }
