@@ -9,8 +9,16 @@ import java.util.Scanner;
 
 public class Menu {
 	Scanner keyb = new Scanner(System.in);
-	public Menu() {
-
+	private static Menu istance;
+	
+	private Menu() {
+	}
+	
+	public static Menu getIstance() {
+		if(istance==null) {
+			istance=new Menu();
+		}
+		return istance;
 	}
 
 	public void create() throws Throwable {
