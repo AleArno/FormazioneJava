@@ -7,7 +7,9 @@ public class Main {
 
 		Menu m = Menu.getIstance();
 		m.create();
+		
 
+		
 	}
 
 }
