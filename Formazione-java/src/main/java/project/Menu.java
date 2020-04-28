@@ -44,7 +44,7 @@ public class Menu {
 		System.out.print("Insert XML file path");
 		inputXML = keyb.next();
 		System.out.println("");
-		Parser p = new Parser();
+		Parser p = Parser.getInstance();
 		try {
 			// File input = new File(inputXML);
 
@@ -64,9 +64,9 @@ public class Menu {
 	}
 	
 	private void dbInsert() {
-		DatabaseConnection db = new DatabaseConnection();
+		DatabaseConnection db=DatabaseConnection.getInstance();
 		db.start();
-		Parser pa = new Parser();
+		Parser pa = Parser.getInstance();
 		ArrayList<Person> persone = new ArrayList<Person>();
 		System.out.print("Insert file path");
 		String path = keyb.next();

@@ -7,7 +7,17 @@ import java.util.ArrayList;
 
 public class Parser {
 
-	public Parser() {
+	private static Parser instance;	
+	
+	private Parser() {
+	}
+	
+	public static Parser getInstance() {
+		if(instance==null) {
+			instance= new Parser();
+		}
+		
+		return instance;
 	}
 
 	private Person getPersona(Element element) {

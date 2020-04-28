@@ -8,9 +8,17 @@ import java.sql.Timestamp;
 public class DatabaseConnection {
 
 	private Connection con;
-
-	public DatabaseConnection() {
+	private static DatabaseConnection instance;
+	private DatabaseConnection() {
 	}
+	
+	public static DatabaseConnection getInstance() {
+		if(instance==null) {
+			instance=new DatabaseConnection();
+		}
+		return instance;		
+	}
+	
 public void start() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
