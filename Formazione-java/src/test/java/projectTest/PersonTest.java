@@ -19,15 +19,6 @@ public class PersonTest {
 		p.setBirth("08/10/2000");
 		p.setKey("ABCDEFG12345678");
 	}
-
-//	@Test
-//	public void testPersonaSenzaDati() {
-//		assertNull("Nome nullo", p.getName());
-//		assertNull("Cognome nullo", p.getSurname());
-//		assertNull("Data nascita nulla", p.getBirth());
-//		assertNull("Chiave nulla", p.getKey());
-//	}
-
 	
 
 	@Test
